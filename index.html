@@ -1,0 +1,1766 @@
+<!DOCTYPE html> <html lang="pt-br"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>CETI Memória Viva</title> <link rel="stylesheet" href="style.css">
+<style>
+    /* ESTILO EXTRA PARA OS BOTÕES DE CURTIR E CONTADOR */
+    .btn-curtir {
+        background-color: #f1f3f5;
+        border: 1px solid #ced4da;
+        padding: 6px 12px;
+        border-radius: 20px;
+        cursor: pointer;
+        font-size: 13px;
+        font-weight: bold;
+        color: #0b3d91;
+        transition: all 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        margin-top: 10px;
+    }
+
+    .btn-curtir:hover {
+        background-color: #0b3d91;
+        color: #fff;
+        border-color: #0b3d91;
+    }
+
+    .btn-curtir:disabled {
+        cursor: default;
+    }
+
+    .contador-visitas-box {
+        background: linear-gradient(135deg, #0b3d91, #1e5799);
+        color: white;
+        padding: 15px;
+        border-radius: 8px;
+        text-align: center;
+        margin: 30px auto;
+        max-width: 400px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .contador-visitas-box span {
+        font-size: 24px;
+        font-weight: bold;
+        color: #ffd700;
+    }
+</style>
+
+</head> <body>
+<!-- AVISO DE CONSTRUÇÃO -->
+<div class="aviso">
+    <h2>🚧 Portal em Construção</h2>
+
+    <p>
+        Seja bem-vindo ao <strong>CETI Memória Viva</strong>.
+    </p>
+
+    <p>
+        Projeto desenvolvido pelos alunos do
+        <strong>1º Ano de Desenvolvimento de Sistemas</strong>
+        do <strong>CETI Hesíchia de Sousa Brito</strong>.
+    </p>
+
+    <h3>📅 Previsão de conclusão: Dezembro de 2026</h3>
+</div>
+
+<!-- CABEÇALHO -->
+<header>
+
+    <h1>CETI Memória Viva</h1>
+
+    <p>
+        Museu Digital da CETI Hesíchia de Sousa Brito
+    </p>
+
+    <nav aria-label="Menu Principal">
+
+        <a href="#inicio">Início</a>
+        <a href="#escola">Nossa Escola</a>
+        <a href="#historia">História</a>
+        <a href="#linha-do-tempo">Linha do Tempo</a>
+        <a href="#galeria">Galeria</a>
+        <a href="#eventos">Eventos</a>
+        <a href="#videos">Vídeos</a>
+        <a href="#depoimentos">Depoimentos</a>
+        <a href="#turma">Nossa Turma</a>
+
+    </nav>
+
+</header>
+
+<!-- BANNER CARROSSEL -->
+<div class="banner">
+
+    <div class="slide ativo"
+        style="background-image: url('imagens/fachada-ceti.jpg');">
+    </div>
+
+    <div class="slide"
+        style="background-image: url('imagens/foto1998.jpg');">
+    </div>
+
+    <div class="slide"
+        style="background-image: url('imagens/evento-escola.jpg');">
+    </div>
+
+    <div class="slide"
+        style="background-image: url('imagens/josue.png');">
+    </div>
+
+    <div class="banner-conteudo">
+
+        <h2>Preservando a Nossa História</h2>
+
+        <p>
+            Um acervo digital de memórias, conquistas e histórias
+            da CETI Hesíchia de Sousa Brito.
+        </p>
+
+        <a href="#inicio" class="btn-banner">
+            Conhecer o Projeto
+        </a>
+
+    </div>
+
+    <div class="indicadores-carrossel">
+
+        <span class="ponto ativo"></span>
+        <span class="ponto"></span>
+        <span class="ponto"></span>
+        <span class="ponto"></span>
+
+    </div>
+
+</div>
+
+<!-- CONTEÚDO PRINCIPAL -->
+<main>
+
+    <!-- INÍCIO -->
+    <section id="inicio" class="inicio revelar">
+
+        <h2>Bem-vindo ao CETI Memória Viva</h2>
+
+        <p>
+            Este projeto tem como objetivo preservar a história,
+            as memórias e os momentos importantes da
+            CETI Hesíchia de Sousa Brito.
+        </p>
+
+        <p>
+            Aqui iremos reunir fotografias, documentos,
+            acontecimentos, projetos e histórias que fazem parte
+            da nossa comunidade escolar.
+        </p>
+
+    </section>
+
+    <!-- NOSSA ESCOLA -->
+    <section id="escola" class="revelar">
+
+        <h2>Nossa Escola</h2>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>🏫 A Escola</h3>
+
+                <p>
+                    A CETI Hesíchia de Sousa Brito faz parte da
+                    história educacional de Piracuruca.
+                </p>
+
+                <div style="margin-top: 12px; text-align: center;">
+
+                    <img
+                        src="imagens/fachada-ceti.jpg"
+                        alt="A Escola"
+                        style="width: 100%; max-height: 140px; object-fit: cover; border-radius: 6px; cursor: pointer;"
+                        title="Clique para ampliar">
+
+                    <span style="font-size: 11px; color: #666; display: block; margin-top: 4px;">
+                        🔍 Clique para ampliar
+                    </span>
+
+                </div>
+
+                <button class="btn-curtir" onclick="curtir(this)">
+                    ❤️ Curtir
+                    (<span class="num-curtidas">14</span>)
+                </button>
+
+            </div>
+
+            <div class="card">
+
+                <h3>👨‍🎓 Estudantes</h3>
+
+                <p>
+                    Nossa escola é formada por estudantes,
+                    professores e profissionais comprometidos
+                    com o saber.
+                </p>
+
+                <div style="margin-top: 12px; text-align: center;">
+
+                    <img
+                        src="imagens/estudantes.jpg"
+                        alt="Estudantes"
+                        style="width: 100%; max-height: 140px; object-fit: cover; border-radius: 6px; cursor: pointer;"
+                        title="Clique para ampliar">
+
+                    <span style="font-size: 11px; color: #666; display: block; margin-top: 4px;">
+                        🔍 Clique para ampliar
+                    </span>
+
+                </div>
+
+                <button class="btn-curtir" onclick="curtir(this)">
+                    ❤️ Curtir
+                    (<span class="num-curtidas">22</span>)
+                </button>
+
+            </div>
+
+            <div class="card">
+
+                <h3>💻 Tecnologia</h3>
+
+                <p>
+                    O curso Técnico em Desenvolvimento de Sistemas
+                    aproxima os estudantes da tecnologia e inovação.
+                </p>
+
+                <div style="margin-top: 12px; text-align: center;">
+
+                    <img
+                        src="imagens/tecnologia.jpg"
+                        alt="Tecnologia"
+                        style="width: 100%; max-height: 140px; object-fit: cover; border-radius: 6px; cursor: pointer;"
+                        title="Clique para ampliar">
+
+                    <span style="font-size: 11px; color: #666; display: block; margin-top: 4px;">
+                        🔍 Clique para ampliar
+                    </span>
+
+                </div>
+
+                <button class="btn-curtir" onclick="curtir(this)">
+                    ❤️ Curtir
+                    (<span class="num-curtidas">35</span>)
+                </button>
+
+            </div>
+
+            <div class="card">
+
+                <h3>🎭 Cultura</h3>
+
+                <p>
+                    A escola também promove atividades culturais,
+                    artísticas e educativas.
+                </p>
+
+                <div style="margin-top: 12px; text-align: center;">
+
+                    <img
+                        src="imagens/cultura.jpg"
+                        alt="Cultura"
+                        style="width: 100%; max-height: 140px; object-fit: cover; border-radius: 6px; cursor: pointer;"
+                        title="Clique para ampliar">
+
+                    <span style="font-size: 11px; color: #666; display: block; margin-top: 4px;">
+                        🔍 Clique para ampliar
+                    </span>
+
+                </div>
+
+                <button class="btn-curtir" onclick="curtir(this)">
+                    ❤️ Curtir
+                    (<span class="num-curtidas">19</span>)
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- HISTÓRIA -->
+    <section id="historia" class="revelar">
+
+        <h2>
+            Nossa História, Nosso Orgulho:
+            A Trajetória Educacional de Piracuruca
+        </h2>
+
+        <p>
+            A história da CETI Hesíchia de Sousa Brito está
+            profundamente ligada à história da educação de
+            Piracuruca. Antes de receber o nome Hesíchia,
+            o espaço onde a escola funcionou passou por
+            diferentes usos e instituições, acompanhando
+            as necessidades educacionais e sociais da comunidade.
+        </p>
+
+        <p>
+            Este registro histórico reúne memórias e relatos
+            que ajudam a compreender a trajetória dos prédios,
+            das escolas, dos professores, dos estudantes e,
+            principalmente, das pessoas que contribuíram para
+            a construção da educação piracuruquense.
+        </p>
+
+        <hr style="margin: 25px 0; border: 0; border-top: 1px solid #ddd;">
+
+        <h3>1. O primeiro prédio: da CBIA à Escola Monsenhor Benedito</h3>
+
+        <p>
+            O primeiro prédio foi construído pelo município
+            para funcionar a <strong>CBIA</strong>, um programa
+            ligado à Secretaria de Assistência Social, que na
+            época era denominada <strong>SERSOM</strong>.
+        </p>
+
+        <p>
+            Posteriormente, o programa foi extinto e o prédio
+            passou a abrigar a
+            <strong>Escola Monsenhor Benedito Cantuária de Almeida Sousa</strong>.
+            Esse era o nome registrado na fachada do primeiro prédio.
+        </p>
+
+        <p>
+            A Escola Monsenhor Benedito atendia ao antigo
+            <strong>ensino primário</strong> e fez parte da
+            formação de várias gerações de crianças de Piracuruca.
+        </p>
+
+        <h3 style="margin-top: 30px;">
+            2. O desejo de formar professoras em Piracuruca
+        </h3>
+
+        <p>
+            Durante esse período, muitas famílias enfrentavam
+            uma dificuldade para garantir a formação profissional
+            de suas filhas. As jovens que desejavam se formar
+            professoras precisavam viajar para
+            <strong>Piripiri</strong>, onde estudavam no
+            Colégio das Irmãs.
+        </p>
+
+        <p>
+            Para uma cidade como Piracuruca, isso representava
+            um grande desafio. As famílias precisavam lidar com
+            a distância, os custos e todas as dificuldades de
+            enviar suas filhas para estudar em outra cidade.
+        </p>
+
+        <p>
+            Cresceu, então, entre as famílias piracuruquenses,
+            o desejo de que a própria cidade pudesse oferecer
+            uma formação para o magistério.
+        </p>
+
+        <p>
+            Atendendo a esse anseio, o prefeito
+            <strong>Gonçalo Rodrigues Magalhães</strong>
+            desativou a Escola Monsenhor Benedito e fez funcionar
+            naquele espaço a
+            <strong>Escola Normal Hesíchia de Sousa Brito</strong>.
+        </p>
+
+        <p>
+            A criação da Escola Normal representou uma conquista
+            importante para a educação local, especialmente para
+            as jovens que desejavam seguir a carreira do magistério
+            sem precisar deixar Piracuruca.
+        </p>
+
+        <h3 style="margin-top: 30px;">
+            3. 1988: as primeiras turmas da Escola Normal
+        </h3>
+
+        <p>
+            O ano de <strong>1988</strong> marcou o início das
+            primeiras turmas da Escola Normal Hesíchia de Sousa
+            Brito. Foram formadas as primeiras turmas, identificadas
+            como <strong>A, B e C</strong>.
+        </p>
+
+        <p>
+            <strong>Dona Aracely</strong> foi a primeira diretora
+            da escola. Sua presença na direção carregava um
+            significado especial, pois a instituição levava o
+            nome de sua própria avó,
+            <strong>Dona Hesíchia de Sousa Brito</strong>.
+        </p>
+
+        <p>
+            A Escola Normal passou a representar uma nova
+            oportunidade para a juventude piracuruquense,
+            consolidando a formação de professores dentro
+            da própria cidade.
+        </p>
+
+        <h3 style="margin-top: 30px;">
+            4. As transformações da educação brasileira
+        </h3>
+
+        <p>
+            Com o passar dos anos, ocorreram importantes mudanças
+            na educação brasileira. O antigo curso pedagógico
+            perdeu espaço e importância dentro do novo modelo
+            de formação educacional.
+        </p>
+
+        <p>
+            Essas transformações também modificaram a organização
+            das escolas de Piracuruca, fazendo com que a Escola
+            Hesíchia passasse por uma nova etapa de sua história.
+        </p>
+
+        <h3 style="margin-top: 30px;">
+            5. O prédio do Gregório Taumaturgo de Azevedo
+            e a transferência para o Estado
+        </h3>
+
+        <p>
+            O Estado havia construído o prédio destinado a uma
+            nova unidade escolar:
+            <strong>Gregório Taumaturgo de Azevedo</strong>.
+        </p>
+
+        <p>
+            Posteriormente, conforme a memória registrada,
+            a Escola Hesíchia foi transferida para o Estado.
+            Há relatos de que essa transferência ocorreu durante
+            a administração do prefeito
+            <strong>Linin</strong>, informação que ainda poderá
+            ser confirmada por meio de documentos oficiais.
+        </p>
+
+        <p>
+            Com essa mudança, o nome
+            <strong>Gregório Taumaturgo de Azevedo</strong>
+            deixou de permanecer como referência daquela unidade
+            escolar, enquanto o nome
+            <strong>Hesíchia de Sousa Brito</strong>
+            continuou atravessando as décadas e permanece ligado
+            à instituição até os dias atuais.
+        </p>
+
+        <h3 style="margin-top: 30px;">
+            6. O retorno da Escola Monsenhor Benedito
+        </h3>
+
+        <p>
+            Com a saída da Escola Hesíchia daquele primeiro espaço,
+            o prédio que anteriormente havia abrigado a instituição
+            voltou a funcionar como escola primária, retomando a
+            presença da
+            <strong>Escola Monsenhor Benedito Cantuária de Almeida Sousa</strong>.
+        </p>
+
+        <p>
+            Naquele período, o município ainda não oferecia o
+            antigo <strong>ginásio</strong>, fazendo com que os
+            estudantes precisassem buscar outras alternativas
+            para continuar sua formação escolar.
+        </p>
+
+        <p>
+            Dessa forma, os mesmos espaços foram testemunhas de
+            diferentes momentos da educação piracuruquense:
+            primeiro a CBIA, depois a Escola Monsenhor Benedito,
+            posteriormente a Escola Normal Hesíchia e, novamente,
+            a Escola Monsenhor Benedito.
+        </p>
+
+        <hr style="margin: 30px 0; border: 0; border-top: 1px solid #ddd;">
+
+        <h3>7. Dona Hesíchia: uma mulher à frente de seu tempo</h3>
+
+        <p>
+            A história da escola não pode ser contada sem destacar
+            a trajetória de sua patrona,
+            <strong>Dona Hesíchia de Sousa Brito</strong>.
+        </p>
+
+        <p>
+            Dona Hesíchia não era natural de Piracuruca.
+            Ela veio para a cidade acompanhada de
+            <strong>Cristina Neves</strong>, para lecionar por
+            meio de um programa do
+            <strong>Governo Federal</strong>.
+        </p>
+
+        <p>
+            Sua chegada a Piracuruca representa um episódio
+            especialmente significativo. Ela veio para uma
+            cidade pequena, distante de Teresina, para exercer
+            a profissão de professora e construir uma nova vida.
+        </p>
+
+        <p>
+            Em uma época em que a sociedade era fortemente
+            marcada pelo machismo e em que não era comum que
+            mulheres assumissem iniciativas dessa natureza,
+            Dona Hesíchia demonstrou coragem, determinação
+            e independência.
+        </p>
+
+        <p>
+            Sua trajetória pode ser compreendida como um símbolo
+            da força feminina e da capacidade de mulheres que,
+            mesmo diante das limitações sociais de seu tempo,
+            encontraram caminhos para trabalhar, ensinar e
+            construir suas próprias histórias.
+        </p>
+
+        <p>
+            Foi em Piracuruca que Dona Hesíchia construiu sua vida.
+            Ela casou-se na cidade e passou a fazer parte da
+            comunidade que havia escolhido para viver e trabalhar.
+        </p>
+
+        <blockquote
+            style="border-left: 4px solid #0b3d91; margin: 25px 0; padding: 15px 20px; color: #555; font-style: italic; background: #f8f9fa;">
+
+            "Dona Hesíchia foi uma mulher forte, corajosa e à
+            frente de seu tempo. Chegou a Piracuruca para ensinar
+            e acabou deixando seu nome marcado na história da
+            educação da cidade."
+
+        </blockquote>
+
+        <h3 style="margin-top: 30px;">
+            8. Uma homenagem justa a uma mulher pioneira
+        </h3>
+
+        <p>
+            Dar o nome de
+            <strong>Hesíchia de Sousa Brito</strong>
+            a uma instituição de ensino é uma homenagem que
+            representa muito mais do que o nome de uma escola.
+        </p>
+
+        <p>
+            É uma forma de reconhecer a trajetória de uma mulher
+            que deixou sua terra de origem, veio para uma pequena
+            cidade do interior para exercer o magistério e
+            construiu aqui sua vida.
+        </p>
+
+        <p>
+            Sua história simboliza a presença e a importância
+            das mulheres na construção da educação de Piracuruca
+            e merece ser conhecida pelas novas gerações.
+        </p>
+
+        <p>
+            Décadas depois, estudantes continuam entrando pelos
+            portões da escola que leva seu nome. Hoje, novas
+            tecnologias permitem que essa história seja registrada
+            e preservada por aqueles que fazem parte da própria
+            escola.
+        </p>
+
+        <p>
+            Assim, passado e presente se encontram:
+            <strong>Dona Hesíchia ensinou em uma época em que
+            poucas mulheres tinham as mesmas oportunidades que
+            os homens; hoje, seu nome permanece associado a uma
+            escola que continua formando novas gerações.</strong>
+        </p>
+
+        <div
+            style="background: linear-gradient(135deg, #0b3d91, #1e5799); color: white; padding: 20px; border-radius: 10px; margin-top: 30px; text-align: center;">
+
+            <h3 style="color: #ffd700; margin-top: 0;">
+                CETI Memória Viva
+            </h3>
+
+            <p style="margin-bottom: 0;">
+                Preservar a história da Escola Hesíchia é preservar
+                também a memória das pessoas, dos professores,
+                dos estudantes e das famílias que ajudaram a
+                construir a educação de Piracuruca.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- LINHA DO TEMPO -->
+    <section id="linha-do-tempo" class="revelar">
+
+        <h2>Linha do Tempo da História da Escola</h2>
+
+        <p>
+            Uma trajetória construída ao longo de décadas,
+            marcada por mudanças nos espaços, nas instituições
+            e nas necessidades educacionais de Piracuruca.
+        </p>
+
+        <div class="timeline">
+
+            <div class="evento">
+
+                <h3>📍 Primeiro período</h3>
+
+                <p>
+                    O município constrói o primeiro prédio para
+                    funcionamento da <strong>CBIA</strong>,
+                    programa ligado à Secretaria de Assistência
+                    Social, então denominada <strong>SERSOM</strong>.
+                </p>
+
+            </div>
+
+            <div class="evento">
+
+                <h3>🏫 Escola Monsenhor Benedito</h3>
+
+                <p>
+                    Com a extinção da CBIA, o prédio passa a
+                    abrigar a
+                    <strong>Escola Monsenhor Benedito Cantuária
+                    de Almeida Sousa</strong>, destinada ao antigo
+                    ensino primário.
+                </p>
+
+            </div>
+
+            <div class="evento">
+
+                <h3>📚 O desejo de formar professoras</h3>
+
+                <p>
+                    Famílias da cidade manifestam o desejo de que
+                    suas filhas possam cursar a formação para o
+                    magistério em Piracuruca, sem precisar viajar
+                    para o Colégio das Irmãs, em Piripiri.
+                </p>
+
+            </div>
+
+            <div class="evento">
+
+                <h3>1987</h3>
+
+                <p>
+                    É criada a
+                    <strong>Escola Normal Hesíchia de Sousa Brito</strong>,
+                    durante a administração do prefeito
+                    <strong>Gonçalo Rodrigues Magalhães</strong>,
+                    atendendo ao anseio da comunidade pela formação
+                    de professoras na própria cidade.
+                </p>
+
+            </div>
+
+            <div class="evento">
+
+                <h3>1988</h3>
+
+                <p>
+                    Começam as atividades da Escola Normal
+                    Hesíchia de Sousa Brito. Surgem as primeiras
+                    turmas, identificadas como
+                    <strong>A, B e C</strong>.
+                    <strong>Dona Aracely</strong> assume como
+                    primeira diretora.
+                </p>
+
+            </div>
+
+            <div class="evento">
+
+                <h3>🎓 Formação de professores</h3>
+
+                <p>
+                    A Escola Normal passa a desempenhar um papel
+                    importante na formação de professores de
+                    Piracuruca, permitindo que jovens da cidade
+                    tivessem acesso ao magistério sem precisar
+                    sair do município.
+                </p>
+
+            </div>
+
+            <div class="evento">
+
+                <h3>🔄 Mudanças na educação brasileira</h3>
+
+                <p>
+                    Com as transformações na educação brasileira,
+                    o antigo curso pedagógico perde espaço e
+                    importância, provocando mudanças na organização
+                    e na finalidade da escola.
+                </p>
+
+            </div>
+
+            <div class="evento">
+
+                <h3>🏛️ Nova estrutura escolar</h3>
+
+                <p>
+                    O Estado constrói o prédio destinado à unidade
+                    escolar
+                    <strong>Gregório Taumaturgo de Azevedo</strong>.
+                </p>
+
+            </div>
+
+            <div class="evento">
+
+                <h3>🏛️ Transferência para o Estado</h3>
+
+                <p>
+                    A Escola Hesíchia é posteriormente transferida
+                    para o Estado. Conforme a memória registrada,
+                    essa mudança teria ocorrido durante a
+                    administração do prefeito
+                    <strong>Linin</strong>.
+                </p>
+
+                <p>
+                    A data exata ainda precisa ser confirmada
+                    por documentos oficiais.
+                </p>
+
+            </div>
+
+            <div class="evento">
+
+                <h3>🏫 Retorno da Escola Monsenhor Benedito</h3>
+
+                <p>
+                    Com a saída da Escola Hesíchia do primeiro
+                    prédio, a
+                    <strong>Escola Monsenhor Benedito Cantuária
+                    de Almeida Sousa</strong> volta a funcionar
+                    no espaço, atendendo novamente ao ensino
+                    primário.
+                </p>
+
+            </div>
+
+            <div class="evento">
+
+                <h3>📖 Uma nova etapa</h3>
+
+                <p>
+                    A Escola Hesíchia continua sua trajetória e
+                    passa a integrar a estrutura educacional do
+                    Estado, mantendo vivo o nome de sua patrona.
+                </p>
+
+            </div>
+
+            <div class="evento">
+
+                <h3>👩‍🏫 A memória de Dona Hesíchia</h3>
+
+                <p>
+                    A trajetória de
+                    <strong>Dona Hesíchia de Sousa Brito</strong>
+                    permanece como parte fundamental da identidade
+                    da escola: uma mulher que veio de outra cidade
+                    para lecionar em Piracuruca, em uma época
+                    marcada por fortes limitações sociais às
+                    mulheres, e aqui construiu sua vida.
+                </p>
+
+            </div>
+
+            <div class="evento">
+
+                <h3>2026</h3>
+
+                <p>
+                    A memória dessa trajetória passa a ser
+                    preservada digitalmente por meio do projeto
+                    <strong>CETI Memória Viva</strong>, desenvolvido
+                    pelos estudantes do
+                    <strong>1º Ano do Curso Técnico em
+                    Desenvolvimento de Sistemas</strong>.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- GALERIA -->
+    <section id="galeria" class="revelar">
+
+        <h2>Galeria de Fotos e Memórias</h2>
+
+        <p>
+            Explore fotografias históricas e momentos marcantes
+            da nossa instituição.
+        </p>
+
+        <div class="filtros-galeria">
+
+            <button class="btn-filtro ativo" data-categoria="todas">
+                Todas
+            </button>
+
+            <button class="btn-filtro" data-categoria="escola">
+                Escola
+            </button>
+
+            <button class="btn-filtro" data-categoria="eventos">
+                Eventos
+            </button>
+
+        </div>
+
+        <div class="galeria">
+
+            <div class="foto" data-categoria="escola">
+
+                <img
+                    src="imagens/fachada-ceti.jpg"
+                    alt="Fachada da CETI"
+                    loading="lazy">
+
+                <p>
+                    Fachada principal da CETI Hesíchia de Sousa Brito.
+                </p>
+
+            </div>
+
+            <div class="foto" data-categoria="eventos">
+
+                <img
+                    src="imagens/foto1998.jpg"
+                    alt="Memória histórica da escola"
+                    loading="lazy">
+
+                <p>
+                    Registro histórico do acervo educacional.
+                </p>
+
+            </div>
+
+            <div class="foto" data-categoria="eventos">
+
+                <img
+                    src="imagens/evento-escola.jpg"
+                    alt="Evento escolar"
+                    loading="lazy">
+
+                <p>
+                    Atividades com estudantes e professores.
+                </p>
+
+            </div>
+
+            <div class="foto" data-categoria="escola">
+
+                <img
+                    src="imagens/josue.png"
+                    alt="Professor Josué e equipe"
+                    loading="lazy">
+
+                <p>
+                    Equipe e registros do curso técnico.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- EVENTOS -->
+    <section id="eventos" class="revelar">
+
+        <h2>Eventos da Escola</h2>
+
+        <p>
+            A vivência escolar vai muito além da sala de aula.
+            Conheça os principais eventos que marcam nossa trajetória:
+        </p>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>🔬 Feira de Ciências e Tecnologia</h3>
+
+                <p>
+                    Exposição de projetos inovadores desenvolvidos
+                    pelos alunos do curso técnico e do ensino médio.
+                </p>
+
+                <div style="margin-top: 12px; text-align: center;">
+
+                    <img
+                        src="imagens/feira-ciencias.jpg"
+                        alt="Feira de Ciências"
+                        style="width: 100%; max-height: 140px; object-fit: cover; border-radius: 6px; cursor: pointer;"
+                        title="Clique para ampliar">
+
+                    <span style="font-size: 11px; color: #666; display: block; margin-top: 4px;">
+                        🔍 Clique para ampliar
+                    </span>
+
+                </div>
+
+                <button class="btn-curtir" onclick="curtir(this)">
+                    ❤️ Curtir
+                    (<span class="num-curtidas">42</span>)
+                </button>
+
+            </div>
+
+            <div class="card">
+
+                <h3>🏆 Jogos Interclasse</h3>
+
+                <p>
+                    Momentos de integração, esporte, saúde e
+                    espírito de equipe entre os estudantes.
+                </p>
+
+                <div style="margin-top: 12px; text-align: center;">
+
+                    <img
+                        src="imagens/interclasse.jpg"
+                        alt="Jogos Interclasse"
+                        style="width: 100%; max-height: 140px; object-fit: cover; border-radius: 6px; cursor: pointer;"
+                        title="Clique para ampliar">
+
+                    <span style="font-size: 11px; color: #666; display: block; margin-top: 4px;">
+                        🔍 Clique para ampliar
+                    </span>
+
+                </div>
+
+                <button class="btn-curtir" onclick="curtir(this)">
+                    ❤️ Curtir
+                    (<span class="num-curtidas">56</span>)
+                </button>
+
+            </div>
+
+            <div class="card">
+
+                <h3>🎭 Festivais Culturais</h3>
+
+                <p>
+                    Apresentações artísticas, musicais e teatrais
+                    que valorizam a cultura e o talento da juventude.
+                </p>
+
+                <div style="margin-top: 12px; text-align: center;">
+
+                    <img
+                        src="imagens/festival-cultural.jpg"
+                        alt="Festival Cultural"
+                        style="width: 100%; max-height: 140px; object-fit: cover; border-radius: 6px; cursor: pointer;"
+                        title="Clique para ampliar">
+
+                    <span style="font-size: 11px; color: #666; display: block; margin-top: 4px;">
+                        🔍 Clique para ampliar
+                    </span>
+
+                </div>
+
+                <button class="btn-curtir" onclick="curtir(this)">
+                    ❤️ Curtir
+                    (<span class="num-curtidas">28</span>)
+                </button>
+
+            </div>
+
+            <div class="card">
+
+                <h3>🇧🇷 7 de Setembro</h3>
+
+                <p>
+                    Participação tradicional dos estudantes e da
+                    banda escolar nas atividades cívicas e culturais
+                    de Piracuruca.
+                </p>
+
+                <div style="margin-top: 12px; text-align: center;">
+
+                    <img
+                        src="imagens/desfile-7setembro.jpg"
+                        alt="Desfile 7 de Setembro"
+                        style="width: 100%; max-height: 140px; object-fit: cover; border-radius: 6px; cursor: pointer;"
+                        title="Clique para ampliar">
+
+                    <span style="font-size: 11px; color: #666; display: block; margin-top: 4px;">
+                        🔍 Clique para ampliar
+                    </span>
+
+                </div>
+
+                <button class="btn-curtir" onclick="curtir(this)">
+                    ❤️ Curtir
+                    (<span class="num-curtidas">61</span>)
+                </button>
+
+            </div>
+
+            <div class="card">
+
+                <h3>📚 Semana Literária</h3>
+
+                <p>
+                    Incentivo à leitura, palestras, rodas de conversa
+                    e valorização da história e literatura local.
+                </p>
+
+                <div style="margin-top: 12px; text-align: center;">
+
+                    <img
+                        src="imagens/semana-literaria.jpg"
+                        alt="Semana Literária"
+                        style="width: 100%; max-height: 140px; object-fit: cover; border-radius: 6px; cursor: pointer;"
+                        title="Clique para ampliar">
+
+                    <span style="font-size: 11px; color: #666; display: block; margin-top: 4px;">
+                        🔍 Clique para ampliar
+                    </span>
+
+                </div>
+
+                <button class="btn-curtir" onclick="curtir(this)">
+                    ❤️ Curtir
+                    (<span class="num-curtidas">23</span>)
+                </button>
+
+            </div>
+
+            <div class="card">
+
+                <h3>🎓 Formaturas e Conquistas</h3>
+
+                <p>
+                    Celebrações que marcam a conclusão de etapas
+                    e o sucesso profissional dos nossos egressos.
+                </p>
+
+                <div style="margin-top: 12px; text-align: center;">
+
+                    <img
+                        src="imagens/formatura.jpg"
+                        alt="Formatura"
+                        style="width: 100%; max-height: 140px; object-fit: cover; border-radius: 6px; cursor: pointer;"
+                        title="Clique para ampliar">
+
+                    <span style="font-size: 11px; color: #666; display: block; margin-top: 4px;">
+                        🔍 Clique para ampliar
+                    </span>
+
+                </div>
+
+                <button class="btn-curtir" onclick="curtir(this)">
+                    ❤️ Curtir
+                    (<span class="num-curtidas">74</span>)
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- VÍDEOS -->
+    <section id="videos" class="revelar">
+
+        <h2>Vídeos e Registros Audiovisuais</h2>
+
+        <p>
+            Assista a depoimentos, apresentações e coberturas
+            especiais sobre a história e os projetos da escola.
+        </p>
+
+        <div class="cards">
+
+            <div class="card">
+
+                <h3>🎥 Documentário: Memória Viva</h3>
+
+                <p>
+                    Conheça os bastidores da criação do projeto
+                    e o resgate histórico de Piracuruca.
+                </p>
+
+                <div
+                    style="margin-top: 15px; position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px;">
+
+                    <iframe
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;"
+                        src="https://www.youtube.com/embed/exemplo"
+                        title="Vídeo Institucional"
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
+
+                <button class="btn-curtir" onclick="curtir(this)"
+                    style="margin-top: 15px;">
+
+                    ❤️ Curtir
+                    (<span class="num-curtidas">49</span>)
+
+                </button>
+
+            </div>
+
+            <div class="card">
+
+                <h3>💻 Mostra de Tecnologia</h3>
+
+                <p>
+                    Apresentação dos sistemas e aplicativos
+                    desenvolvidos pelos alunos do curso técnico.
+                </p>
+
+                <div
+                    style="margin-top: 15px; position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px;">
+
+                    <iframe
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;"
+                        src="https://www.youtube.com/embed/exemplo"
+                        title="Mostra de Tecnologia"
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
+
+                <button class="btn-curtir" onclick="curtir(this)"
+                    style="margin-top: 15px;">
+
+                    ❤️ Curtir
+                    (<span class="num-curtidas">38</span>)
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- DEPOIMENTOS -->
+    <section id="depoimentos" class="revelar">
+
+        <h2>Depoimentos e Histórias de Vida</h2>
+
+        <p>
+            O que dizem aqueles que fazem e fizeram parte
+            da nossa trajetória educacional:
+        </p>
+
+        <div class="cards">
+
+            <div class="card"
+                style="border-left: 4px solid #0b3d91;">
+
+                <p style="font-style: italic;">
+
+                    "Estudar na CETI Hesíchia de Sousa Brito e
+                    participar do curso técnico abriu minha mente
+                    para o mundo da tecnologia. Ver a história da
+                    nossa escola sendo digitalizada por nós mesmos
+                    é gratificante."
+
+                </p>
+
+                <p
+                    style="margin-top: 15px; font-weight: bold; color: #0b3d91;">
+
+                    — Aluno(a) do Curso de Desenvolvimento
+                    de Sistemas
+
+                </p>
+
+                <div style="margin-top: 12px; text-align: center;">
+
+                    <img
+                        src="imagens/depoimento-aluno.jpg"
+                        alt="Aluno Depoimento"
+                        style="width: 100%; max-height: 120px; object-fit: cover; border-radius: 6px; cursor: pointer;"
+                        title="Clique para ampliar">
+
+                    <span style="font-size: 11px; color: #666; display: block; margin-top: 4px;">
+                        🔍 Clique para ampliar
+                    </span>
+
+                </div>
+
+                <button class="btn-curtir" onclick="curtir(this)">
+                    ❤️ Curtir
+                    (<span class="num-curtidas">31</span>)
+                </button>
+
+            </div>
+
+            <div class="card"
+                style="border-left: 4px solid #0b3d91;">
+
+                <p style="font-style: italic;">
+
+                    "É uma emoção ver o nome da minha avó e a
+                    trajetória de tantas décadas de ensino sendo
+                    homenageadas e preservadas com tanto carinho
+                    pelas novas gerações."
+
+                </p>
+
+                <p
+                    style="margin-top: 15px; font-weight: bold; color: #0b3d91;">
+
+                    — Membro da Comunidade / Família Homenageada
+
+                </p>
+
+                <div style="margin-top: 12px; text-align: center;">
+
+                    <img
+                        src="imagens/depoimento-familia.jpg"
+                        alt="Família Homenageada"
+                        style="width: 100%; max-height: 120px; object-fit: cover; border-radius: 6px; cursor: pointer;"
+                        title="Clique para ampliar">
+
+                    <span style="font-size: 11px; color: #666; display: block; margin-top: 4px;">
+                        🔍 Clique para ampliar
+                    </span>
+
+                </div>
+
+                <button class="btn-curtir" onclick="curtir(this)">
+                    ❤️ Curtir
+                    (<span class="num-curtidas">27</span>)
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- NOSSA TURMA -->
+    <section id="turma" class="revelar">
+
+        <h2>
+            Liderança e Mentoria:
+            Conheça Quem Faz a Diferença
+        </h2>
+
+        <p>
+            O projeto CETI Memória Viva está sendo desenvolvido
+            pelos estudantes do 1º Ano de Desenvolvimento de Sistemas.
+        </p>
+
+        <div class="cards" style="margin-top: 30px;">
+
+            <div class="card"
+                style="border-top-color: #ffd700;">
+
+                <h3>
+                    👩‍💼 Emanoelly de Jesus Silva Sousa
+                </h3>
+
+                <p>
+                    <strong>
+                        Diretora Operacional e Pedagógica —
+                        CETI Hesíchia de Sousa Brito
+                    </strong>
+                </p>
+
+                <p style="font-size: 14px; margin-top: 10px;">
+
+                    À frente da gestão, consolidou-se como uma
+                    das principais impulsionadoras da modernização
+                    do ensino público em Piracuruca. Sob sua
+                    liderança, a instituição expandiu o tempo
+                    integral e fortaleceu os cursos técnicos de
+                    tecnologia. Sua gestão une inovação pedagógica
+                    e respeito ao patrimônio histórico local.
+
+                </p>
+
+                <div style="margin-top: 12px; text-align: center;">
+
+                    <img
+                        src="imagens/diretora-emanoelly.jpg"
+                        alt="Diretora Emanoelly"
+                        style="width: 100%; max-height: 140px; object-fit: cover; border-radius: 6px; cursor: pointer;"
+                        title="Clique para ampliar">
+
+                    <span style="font-size: 11px; color: #666; display: block; margin-top: 4px;">
+                        🔍 Clique para ampliar
+                    </span>
+
+                </div>
+
+                <button class="btn-curtir" onclick="curtir(this)">
+                    ❤️ Curtir
+                    (<span class="num-curtidas">85</span>)
+                </button>
+
+            </div>
+
+            <div class="card"
+                style="border-top-color: #ffd700;">
+
+                <h3>
+                    👨‍💻 Josué de Carvalho Araújo
+                </h3>
+
+                <p>
+                    <strong>
+                        Professor e Mentor Técnico em
+                        Desenvolvimento de Sistemas
+                    </strong>
+                </p>
+
+                <p style="font-size: 14px; margin-top: 10px;">
+
+                    Atua ministrando disciplinas fundamentais
+                    no curso técnico. Idealizou e coordenou o
+                    projeto de resgate e digitalização da memória
+                    histórica das escolas Hesíchia de Sousa Brito
+                    e Hermínio Conde, orientando os alunos na
+                    construção de acervos digitais.
+
+                </p>
+
+                <div style="margin-top: 12px; text-align: center;">
+
+                    <img
+                        src="imagens/josue.png"
+                        alt="Professor Josué"
+                        style="width: 100%; max-height: 140px; object-fit: cover; border-radius: 6px; cursor: pointer;"
+                        title="Clique para ampliar">
+
+                    <span style="font-size: 11px; color: #666; display: block; margin-top: 4px;">
+                        🔍 Clique para ampliar
+                    </span>
+
+                </div>
+
+                <button class="btn-curtir" onclick="curtir(this)">
+                    ❤️ Curtir
+                    (<span class="num-curtidas">92</span>)
+                </button>
+
+            </div>
+
+            <div class="card">
+
+                <h3>💻 Nossa Turma</h3>
+
+                <p>
+                    <strong>
+                        1º Ano de Desenvolvimento de Sistemas
+                    </strong>
+                </p>
+
+                <p style="font-size: 14px; margin-top: 10px;">
+
+                    Os alunos estão aprendendo HTML, CSS,
+                    pesquisa histórica e tecnologias web para
+                    transformar essas informações em um museu
+                    digital interativo e acessível.
+
+                </p>
+
+                <div style="margin-top: 12px; text-align: center;">
+
+                    <img
+                        src="imagens/turma-ds.jpg"
+                        alt="Turma de DS"
+                        style="width: 100%; max-height: 140px; object-fit: cover; border-radius: 6px; cursor: pointer;"
+                        title="Clique para ampliar">
+
+                    <span style="font-size: 11px; color: #666; display: block; margin-top: 4px;">
+                        🔍 Clique para ampliar
+                    </span>
+
+                </div>
+
+                <button class="btn-curtir" onclick="curtir(this)">
+                    ❤️ Curtir
+                    (<span class="num-curtidas">67</span>)
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<!-- CONTADOR DE VISITANTES -->
+<div class="contador-visitas-box">
+
+    <p>
+        🏛️ Visitantes no Museu Digital
+    </p>
+
+    <span id="contador-visitas">
+        1.248
+    </span>
+
+    pessoas explorando esta história
+
+</div>
+
+<!-- RODAPÉ -->
+<footer>
+
+    <p>
+        Projeto da Turma do 1º Ano de Desenvolvimento de Sistemas
+    </p>
+
+    <p>
+        CETI Hesíchia de Sousa Brito — 2026
+    </p>
+
+</footer>
+
+<!-- SCRIPT -->
+<script>
+
+    /* ==========================================
+       FUNÇÃO DE CURTIR
+    ========================================== */
+
+    function curtir(botao) {
+
+        const spanNum =
+            botao.querySelector('.num-curtidas');
+
+        let atual =
+            parseInt(spanNum.textContent);
+
+        spanNum.textContent = atual + 1;
+
+        botao.style.backgroundColor = '#e7f5ff';
+        botao.style.color = '#1864ab';
+        botao.style.borderColor = '#74c0fc';
+
+        botao.disabled = true;
+
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+
+        /* ==========================================
+           1. REVELAÇÃO AO ROLAR
+        ========================================== */
+
+        const elementosRevelar =
+            document.querySelectorAll(
+                ".revelar, .card, .evento"
+            );
+
+        const observer =
+            new IntersectionObserver(
+                (entries) => {
+
+                    entries.forEach((entry) => {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add("visivel");
+
+                            observer.unobserve(entry.target);
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.15
+                }
+            );
+
+        elementosRevelar.forEach(
+            el => observer.observe(el)
+        );
+
+        /* ==========================================
+           2. MENU ATIVO DURANTE O SCROLL
+        ========================================== */
+
+        const secoes =
+            document.querySelectorAll("section[id]");
+
+        const linksNav =
+            document.querySelectorAll("nav a");
+
+        window.addEventListener(
+            "scroll",
+            () => {
+
+                let atual = "";
+
+                secoes.forEach((secao) => {
+
+                    if (
+                        window.scrollY >=
+                        secao.offsetTop - 180
+                    ) {
+
+                        atual =
+                            secao.getAttribute("id");
+
+                    }
+
+                });
+
+                linksNav.forEach((link) => {
+
+                    link.classList.toggle(
+                        "ativo",
+                        link.getAttribute("href") ===
+                        `#${atual}`
+                    );
+
+                });
+
+            },
+            {
+                passive: true
+            }
+        );
+
+        /* ==========================================
+           3. BANNER CARROSSEL
+        ========================================== */
+
+        const slides =
+            document.querySelectorAll(".slide");
+
+        const pontos =
+            document.querySelectorAll(".ponto");
+
+        let slideAtual = 0;
+
+        function mudarSlide(indice) {
+
+            slides.forEach(
+                s => s.classList.remove("ativo")
+            );
+
+            pontos.forEach(
+                p => p.classList.remove("ativo")
+            );
+
+            slides[indice].classList.add("ativo");
+
+            pontos[indice].classList.add("ativo");
+
+            slideAtual = indice;
+
+        }
+
+        let intervalo =
+            setInterval(() => {
+
+                mudarSlide(
+                    (slideAtual + 1) %
+                    slides.length
+                );
+
+            }, 5000);
+
+        pontos.forEach(
+            (ponto, idx) => {
+
+                ponto.addEventListener(
+                    "click",
+                    () => {
+
+                        mudarSlide(idx);
+
+                        clearInterval(intervalo);
+
+                        intervalo =
+                            setInterval(
+                                () =>
+                                    mudarSlide(
+                                        (slideAtual + 1) %
+                                        slides.length
+                                    ),
+                                5000
+                            );
+
+                    }
+                );
+
+            }
+        );
+
+        /* ==========================================
+           4. FILTROS DA GALERIA
+        ========================================== */
+
+        const botoesFiltro =
+            document.querySelectorAll(".btn-filtro");
+
+        const fotos =
+            document.querySelectorAll(".galeria .foto");
+
+        botoesFiltro.forEach(
+            botao => {
+
+                botao.addEventListener(
+                    "click",
+                    () => {
+
+                        botoesFiltro.forEach(
+                            b =>
+                                b.classList.remove("ativo")
+                        );
+
+                        botao.classList.add("ativo");
+
+                        const categoria =
+                            botao.getAttribute(
+                                "data-categoria"
+                            );
+
+                        fotos.forEach(
+                            foto => {
+
+                                if (
+                                    categoria === "todas" ||
+                                    foto.getAttribute(
+                                        "data-categoria"
+                                    ) === categoria
+                                ) {
+
+                                    foto.classList.remove(
+                                        "esconder"
+                                    );
+
+                                } else {
+
+                                    foto.classList.add(
+                                        "esconder"
+                                    );
+
+                                }
+
+                            }
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+        /* ==========================================
+           5. MODAL DE ZOOM DAS IMAGENS
+        ========================================== */
+
+        document.querySelectorAll("img")
+            .forEach(img => {
+
+                img.addEventListener(
+                    "click",
+                    () => {
+
+                        const overlay =
+                            document.createElement("div");
+
+                        overlay.className =
+                            "modal-overlay";
+
+                        overlay.innerHTML = `
+                            <img
+                                src="${img.src}"
+                                class="modal-img"
+                                alt="Zoom da imagem">
+                        `;
+
+                        document.body.appendChild(
+                            overlay
+                        );
+
+                        requestAnimationFrame(
+                            () =>
+                                overlay.classList.add(
+                                    "ativo"
+                                )
+                        );
+
+                        overlay.addEventListener(
+                            "click",
+                            () => {
+
+                                overlay.classList.remove(
+                                    "ativo"
+                                );
+
+                                setTimeout(
+                                    () =>
+                                        overlay.remove(),
+                                    300
+                                );
+
+                            }
+                        );
+
+                    }
+                );
+
+            });
+
+        /* ==========================================
+           6. CONTADOR DE VISITAS
+        ========================================== */
+
+        const contadorEl =
+            document.getElementById(
+                "contador-visitas"
+            );
+
+        if (contadorEl) {
+
+            let visitasAtuais = 1248;
+
+            setInterval(
+                () => {
+
+                    visitasAtuais +=
+                        Math.floor(
+                            Math.random() * 3
+                        ) + 1;
+
+                    contadorEl.textContent =
+                        visitasAtuais.toLocaleString(
+                            "pt-BR"
+                        );
+
+                },
+                15000
+            );
+
+        }
+
+    });
+
+</script>
+
+</body> </html>
+
